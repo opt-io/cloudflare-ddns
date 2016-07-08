@@ -1,15 +1,24 @@
 language: go
-go: 
-  - 1.6
-  - tip
-
+go:
+- 1.6
 install:
-  - go get github.com/constabulary/gb/...
-  - gb vendor restore
-
+- go get github.com/constabulary/gb/...
+- gb vendor restore
 script:
-  - GOOS=linux GOARCH=amd64 gb build
-  - GOOS=windows GOARCH=amd64 gb build
-  - ls -la
-  - ls -la bin
-
+- GOOS=linux GOARCH=amd64 gb build all
+- GOOS=windows GOARCH=amd64 gb build all
+- GOOS=linux GOARCH=arm gb build all
+- GOOS=darwin GOARCH=amd64 gb build all
+- ls -la
+- ls -la bin
+deploy:
+  provider: releases
+  api_key:
+    secure: Y0cH54qhieFkeP4A0l3cC7AeUmQckq41SpN+9KzO820i2tAFR1U+uKmlBGzySZTX7nZrwzzE3S/ahvpbvv7qrCKQZnyUkAmljJ2nOu+foBfLuUHAJ3P9LAe5d0z8/tUR69k8HUE0fx8HfqeAf53ulSQA2fzeWO1dsvo/J1UMfbSkEMXvzsiu9+NbgdvpKhPqBBh25tZlqOg6bP8ysnaTtdbQ3Vi9NMKKjlybOGVHBDfOWHFYporLnx7EP1bhOeI0+Ij5YV6P49hhbxEEGQCTiM1Lg9uuiEO9Evm6+IHa9uWEaG7t7Cj2NVDijR/iQAWmR/Kx+hedtOlXZSg/+Vaig56mbaSgkFyaTBD5Aa3zqVCWCYh481f3SXR+/akKX9Q+cZwfDLL6QdHstzeMHmoLCf60JUZwK3llhrM675zwGoWAqFOk3i87lLs2L9OiPpqZLjKyeRqcvJKQKuBoPtn1fxM1op2QTzivNipXmYI6IfXj/zBe/S7MQ/XbaL3YnSVqXpM+pc6r5MBDPKmcjvO7FDxycmQz+108v9FIQUZYQv+TzXOykS7EyifUxYIheBcKFdvpntS5cUwg3c+uTtmClTipOiUppjiX5eKoXeS0RF0XuCzpFqmsK4XIfh4h6C6UaSNHJ2ZRhXnvFbUPPI56AUwSwDml5OvHtWCSz4xQ0q8=
+  file:
+    - "cf-ddns-linux-amd64"
+    - "cf-ddns-windows-amd64.exe"
+    - "cf-ddns-linux-arm"
+    - "cf-ddns-darwin-amd64"
+  on:
+    repo: opt-io/cloudflare-ddns
