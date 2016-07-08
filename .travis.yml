@@ -20,5 +20,6 @@ deploy:
     - "cf-ddns-windows-amd64.exe"
     - "cf-ddns-linux-arm"
     - "cf-ddns-darwin-amd64"
+  skip_cleanup: true
   on:
-    repo: opt-io/cloudflare-ddns
+    tags: true
