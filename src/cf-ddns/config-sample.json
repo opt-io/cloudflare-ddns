@@ -1,0 +1,24 @@
+{
+  "email": "email-address",
+  "api_key": "API-Key",
+  "domains": [
+    {
+      "domain": "example.com",
+      "host": "subdomain",
+      "type": "A"
+    },
+    {
+      "domain": "example.com",
+      "host": "subdomain",
+      "type": "AAAA"
+    }
+  ],
+  "IPFetchURLs": {
+    "ipv4": "https://4.ifcfg.me/ip",
+    "ipv6": "https://6.ifcfg.me/ip"
+  },
+  "initialIP": {
+    "ipv4": "0.0.0.0",
+    "ipv6": "::1"
+  }
+}
