@@ -3,7 +3,9 @@ A command-line cloudflare DDNS updater written in Go, using the CloudFlare GO AP
 
 # Usage
 
-You must update and include a config.json file in the working directory.  If you exclude the IPv6 fetch URL, only IPv4 will be updated.
+You must update and include a config.json file in the working directory.  The last fetched IP is stored in the config file, to limit CloudFlare API activity.
+
+You can exclude the IPv6 or IPv4 fetch URL to force a single protocol.  When fetching an IP, the request is made over the respective protocol.
 
 ```
 $ cf-ddns
