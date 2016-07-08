@@ -1,4 +1,6 @@
 # cloudflare-ddns
+[![Build Status](https://img.shields.io/travis/opt-io/cloudflare-ddns/master.svg?style=flat-square)](https://travis-ci.org/opt-io/cloudflare-ddns)
+
 A command-line cloudflare DDNS updater written in Go, using the CloudFlare GO API library: https://github.com/cloudflare/cloudflare-go
 
 # Usage
